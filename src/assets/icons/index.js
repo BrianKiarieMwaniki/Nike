@@ -10,11 +10,13 @@ import shieldTick from './shield-tick.svg'
 import star from './star.svg'
 import truckFast from './truck-fast.svg'
 import twitter from './twitter.svg'
+import clear from './clear.svg';
 
 export {
     arrowRight,
     cheveronRight,
     chevronLeft,
+    clear,
     copyrightSign,
     facebook,
     hamburger,
