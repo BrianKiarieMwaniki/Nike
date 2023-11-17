@@ -4,6 +4,7 @@ import { bigShoe1 } from "../assets/images";
 import { shoes, statistics } from "../constants";
 import ShoeCard from "./../Components/ShoeCard";
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
 
@@ -13,7 +14,14 @@ const Hero = () => {
       id="home"
       className="flex flex-col justify-center w-full min-h-screen gap-10 xl:flex-row max-container "
     >
-      <div className="relative flex-col items-start justify-center w-full xl:w-2/5 flex- max-xl:padding-x pt-28">
+      <motion.div
+        initial={{x:-200}}
+        animate={{x:0}}
+        transition={{
+          type:"tween",
+          duration: 0.7
+        }}
+      className="relative flex-col items-start justify-center w-full xl:w-2/5 flex- max-xl:padding-x pt-28">
         <p className="text-xl font-montserrat text-coral-red">
           Our Summer Collection
         </p>
@@ -40,9 +48,16 @@ const Hero = () => {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
-      <div className="relative flex items-center justify-center flex-1 bg-center bg-cover xl:min-h-screen max-xl:py-40 bg-primary bg-hero">
+      <motion.div
+        initial={{x:4000}}
+        animate={{x:0}}
+        transition={{
+          type:"tween",
+          duration: 0.7
+        }}
+      className="relative flex items-center justify-center flex-1 bg-center bg-cover xl:min-h-screen max-xl:py-40 bg-primary bg-hero">
         <img
           src={bigShoeImage}
           alt="shoe collection"
@@ -62,7 +77,7 @@ const Hero = () => {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
