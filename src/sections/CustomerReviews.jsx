@@ -4,10 +4,13 @@ import ReviewCard from "./../Components/ReviewCard";
 import { motion, useAnimation } from "framer-motion";
 import {useInView} from 'react-intersection-observer';
 import { fadeIn } from "../utils/motion";
+import { useStaggerAnimation } from "../hooks/useStaggerAnimation";
 
 const CustomerReviews = () => {
   const [ref, isInView] = useInView({triggerOnce:true, threshold: 0.1});
   const animation = useAnimation();
+
+  const scope = useStaggerAnimation(isInView, "article");
 
   useEffect(() => {
     if (isInView) {
@@ -47,16 +50,16 @@ const CustomerReviews = () => {
         </motion.p>
 
         <motion.div
-          transition={{ staggerChildren: 1, delayChildren:0.7 }}
+          ref={scope}
+          transition={{ staggerChildren: 0.5, delayChildren:0.25 }}
           className="flex items-center flex-1 mt-24 justify-evenly max-lg:flex-col gap-14"
         >
           {reviews.map((review) => (
-            <div ref={ref} key={review.customerName}>
-              <ReviewCard
-                variants={fadeIn("up")}
+            <article key={review.customerName}>
+              <ReviewCard                
                 {...review}
               />
-            </div>
+            </article>
           ))}
         </motion.div>
       </section>
