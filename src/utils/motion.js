@@ -38,3 +38,29 @@ export const popularProductCardVariants = {
     hidden: {opacity:0, y:4000},
     visible:{opacity:1, y:0 , transition:{duration:0.5}}
 }
+
+export const slideIn = (direction) =>{
+  return {
+    hidden: {
+      x: direction === "left" ? "-100%" : direction === "right" ? "100%" : 0,
+      opacity: 0.6
+    },
+    visible: {
+      x:0,
+      opacity:1
+    }
+  }
+}
+
+export const fadeIn = (direction)=>{
+  return {
+    hidden: {
+      y: direction === "up" ? 100 :direction === "down"? -100 :0,
+      opacity: 0.25
+    },
+    visible:{
+      y:0,
+      opacity:1
+    }
+  }
+}
