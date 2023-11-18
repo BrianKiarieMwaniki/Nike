@@ -1,19 +1,10 @@
 import { star } from "../assets/icons";
 import { motion } from "framer-motion";
 
-const ReviewCard = ({ imgURL, customerName, rating, feedback, variants }) => {
+const ReviewCard = ({ imgURL, customerName, rating, feedback}) => {
   return (
     <motion.div
-      variants={variants}
-      initial="hidden"
-      animate="visible"
-      transition={{
-        type:"spring",
-        stiffness: 150,
-        bounce: 0,
-        duration: 0.5,
-        delay:0.25
-      }}
+      
       className="flex flex-col items-center justify-center"
     >
       <img
