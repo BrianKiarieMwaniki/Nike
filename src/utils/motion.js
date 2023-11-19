@@ -64,3 +64,18 @@ export const fadeIn = (direction)=>{
     }
   }
 }
+
+export const pageTransitions = {
+  hidden:{
+    opacity:0,
+    x:"-100%"
+  },
+  in: {
+    opacity: 1,
+    x:0
+  },
+  exit:{
+    opacity:0.25,
+    x:"100%"
+  }
+}
