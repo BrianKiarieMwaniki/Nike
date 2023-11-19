@@ -1,42 +1,42 @@
-import Nav from './Components/Nav';
+import Nav from "./Components/Nav";
+import Footer from "./Components/Footer";
 import {
-  CustomerReviews,
-  Hero,
-  PopularProducts,
-  SupperQuality,
-  Services,
-  SpecialOffer,
-  Subscribe,
-  Footer
-} from "./sections";
+  Outlet,
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+import { Home, Products, AboutUs, ContactUs } from "./pages";
+import { AnimatePresence } from "framer-motion";
+import PageTransitionWrapper from "./Components/PageTransitionWrapper";
 
-const App = () => (
-  <main className="relative">
-    <Nav/>
-    <section className="xl:padding-l wide:padding-r padding-b">
-      <Hero />
-    </section>
-    <section className="padding">
-      <PopularProducts />
-    </section>
-    <section className="padding">
-      <SupperQuality />
-    </section>
-    <section className="padding-x py-10">
-      <Services />
-    </section>
-    <section className="padding">
-      <SpecialOffer />
-    </section>
-    <section className="bg-pale-blue padding">
-      <CustomerReviews />
-    </section>
-    <section className="padding-x sm:py-32 py-15 w-full">
-      <Subscribe />
-    </section>
-    <section className="bg-black padding-x padding-t pb-8">
-      <Footer />
-    </section>
-  </main>
+const Layout = () => {
+  return (
+    <>
+      <Nav />
+      <main className="relative overflow-x-hidden">
+        <AnimatePresence mode="wait">
+          <Outlet />
+        </AnimatePresence>
+      </main>
+      <section className="pb-8 bg-black padding-x padding-t">
+        <Footer />
+      </section>
+    </>
+  );
+};
+
+const router = createBrowserRouter(
+  createRoutesFromElements(    
+    <Route path="/" element={<Layout />}>
+      <Route index element={<PageTransitionWrapper><Home /></PageTransitionWrapper>} />
+      <Route path="/products" element={<PageTransitionWrapper><Products /></PageTransitionWrapper>} />
+      <Route path="/about-us" element={<PageTransitionWrapper><AboutUs /></PageTransitionWrapper>} />
+      <Route path="/contact-us" element={<PageTransitionWrapper><ContactUs /></PageTransitionWrapper>} />
+    </Route>
+  )
 );
+
+const App = () => <RouterProvider router={router} />;
 export default App;

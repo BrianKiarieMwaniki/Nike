@@ -87,7 +87,7 @@ const SpecialOffer = () => {
               us is nothing short of exceptional.
             </p>
             <div className="flex flex-wrap gap-4 mt-11">
-              <Button label="Shop now" iconUrl={arrowRight} />
+              <Button label="Shop now" isLink={true} href='/products' iconUrl={arrowRight} />
               <Button
                 label="Learn more"
                 backgroundColor="bg-white"

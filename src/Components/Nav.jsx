@@ -2,6 +2,7 @@ import { headerLogo } from "../assets/images";
 import { clear, hamburger } from "../assets/icons";
 import { navLinks } from "../constants";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [showDropdownNav, setShowDropdownNav] = useState(false);
@@ -43,12 +44,13 @@ const Nav = () => {
         >
           {navLinks.map((item) => (
             <li key={item.label}>
-              <a
-                href={item.href}
+              <Link
+                to={item.href}
                 className="text-lg leading-normal font-montserrart text-slate-gray hover:text-coral-red"
+                onClick={()=> (setShowDropdownNav(false))}
               >
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
