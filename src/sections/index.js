@@ -1,10 +1,13 @@
-import CustomerReviews from "./CustomerReviews";
-import Hero from "./Hero";
-import Services from "./Services";
-import SpecialOffer from "./SpecialOffer";
-import Subscribe from "./Subscribe";
-import SupperQuality from "./SupperQuality";
-import PopularProducts from "./PopularProducts";
+import CustomerReviews from "./home/CustomerReviews";
+import Hero from "./home/Hero";
+import Services from "./home/Services";
+import SpecialOffer from "./home/SpecialOffer";
+import Subscribe from "./home/Subscribe";
+import SupperQuality from "./home/SupperQuality";
+import PopularProducts from "./home/PopularProducts";
+import Intro from "./about/Intro";
+import OurStory from './about/OurStory';
+import Innovation from './about/Innovation';
 
 export {
   CustomerReviews,
@@ -14,4 +17,7 @@ export {
   Subscribe,
   SupperQuality,
   PopularProducts,
+  Intro,
+  OurStory,
+  Innovation
 };

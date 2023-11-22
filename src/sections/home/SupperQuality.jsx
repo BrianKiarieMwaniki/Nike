@@ -1,6 +1,6 @@
-import { shoe8 } from "../assets/images";
-import Button from "./../Components/Button";
-import { slideIn } from "../utils/motion";
+import { shoe8 } from "../../assets/images";
+import Button from "../../Components/Button";
+import { slideIn } from "../../utils/motion";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useRef, useEffect } from "react";
 
@@ -29,7 +29,7 @@ const SupperQuality = () => {
           transition={{
             duration: 0.5,
             delayChildren: 0.5,
-            staggerChildren: 0.6
+            staggerChildren: 0.6,
           }}
           className="flex flex-col flex-1"
         >

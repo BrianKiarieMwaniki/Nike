@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Palanquin:wght@100;200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -16,6 +16,19 @@
   .max-container {
     max-width: 1440px;
     margin: 0 auto;
+  }
+
+  .bg-image-gradient{
+    @apply bg-no-repeat bg-cover bg-center;
+    background-image:linear-gradient(to right bottom, rgba(0,0,0, 0.9), rgba(0, 0, 0, 0.4)), url('./assets/images/big-shoe4.png');
+  }
+
+  .parallax-banner{
+    @apply relative overflow-hidden bg-fixed bg-cover;
+     background-image:radial-gradient(circle, rgba(0,0,0, 0.75), rgba(0, 0, 0, 0.6)), url('./assets/images/athlete.png');
+     background-attachment:fixed;
+     background-position:center;
+     background-repeat: no-repeat;
   }
 
   .input {

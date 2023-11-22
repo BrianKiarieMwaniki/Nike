@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import { reviews } from "../constants";
-import ReviewCard from "./../Components/ReviewCard";
+import { reviews } from "../../constants";
+import ReviewCard from "../../Components/ReviewCard";
 import { motion, useAnimation } from "framer-motion";
 import {useInView} from 'react-intersection-observer';
-import { fadeIn } from "../utils/motion";
-import { useStaggerAnimation } from "../hooks/useStaggerAnimation";
+import { fadeIn } from "../../utils/motion";
+import { useStaggerAnimation } from "../../hooks/useStaggerAnimation";
 
 const CustomerReviews = () => {
   const [ref, isInView] = useInView({triggerOnce:true, threshold: 0.1});

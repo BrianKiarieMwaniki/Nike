@@ -1,13 +1,12 @@
-import Button from "../Components/Button";
-import { arrowRight } from "../assets/icons";
-import { bigShoe1 } from "../assets/images";
-import { shoes, statistics } from "../constants";
-import ShoeCard from "./../Components/ShoeCard";
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import Button from "../../Components/Button";
+import { arrowRight } from "../../assets/icons";
+import { bigShoe1 } from "../../assets/images";
+import { shoes, statistics } from "../../constants";
+import ShoeCard from "../../Components/ShoeCard";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Hero = () => {
-
   const [bigShoeImage, setBigShoeImage] = useState(bigShoe1);
   return (
     <section
@@ -15,13 +14,14 @@ const Hero = () => {
       className="flex flex-col justify-center w-full min-h-screen gap-10 xl:flex-row max-container "
     >
       <motion.div
-        initial={{x:-200}}
-        animate={{x:0}}
+        initial={{ x: -200 }}
+        animate={{ x: 0 }}
         transition={{
-          type:"tween",
-          duration: 0.7
+          type: "tween",
+          duration: 0.7,
         }}
-      className="relative flex-col items-start justify-center w-full xl:w-2/5 flex- max-xl:padding-x pt-28">
+        className="relative flex-col items-start justify-center w-full xl:w-2/5 flex- max-xl:padding-x pt-28"
+      >
         <p className="text-xl font-montserrat text-coral-red">
           Our Summer Collection
         </p>
@@ -36,7 +36,12 @@ const Hero = () => {
           Discover stylish Nike arrivals, quality comfort, and innovation for
           your active life.
         </p>
-        <Button label="Shop Now" isLink={true} href='/products' iconUrl={arrowRight} />
+        <Button
+          label="Shop Now"
+          isLink={true}
+          href="/products"
+          iconUrl={arrowRight}
+        />
 
         <div className="flex flex-wrap items-start justify-start w-full gap-16 mt-20">
           {statistics.map((stat) => (
@@ -51,13 +56,14 @@ const Hero = () => {
       </motion.div>
 
       <motion.div
-        initial={{x:4000}}
-        animate={{x:0}}
+        initial={{ x: 4000 }}
+        animate={{ x: 0 }}
         transition={{
-          type:"tween",
-          duration: 0.7
+          type: "tween",
+          duration: 0.7,
         }}
-      className="relative flex items-center justify-center flex-1 bg-center bg-cover xl:min-h-screen max-xl:py-40 bg-primary bg-hero">
+        className="relative flex items-center justify-center flex-1 bg-center bg-cover xl:min-h-screen max-xl:py-40 bg-primary bg-hero"
+      >
         <img
           src={bigShoeImage}
           alt="shoe collection"
