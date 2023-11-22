@@ -31,6 +31,7 @@ export default {
       backgroundImage: {
         hero: "url('assets/images/collection-background.svg')",
         card: "url('assets/images/thumbnail-background.svg')",
+        aboutIntro:"url('assests/images/big-shoe4.png')"
       },
       screens: {
         wide: "1440px",

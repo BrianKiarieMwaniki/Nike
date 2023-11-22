@@ -1,20 +1,20 @@
 import { useInView } from "react-intersection-observer";
-import Button from "../Components/Button";
+import Button from "../../Components/Button";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
-import { slideIn } from './../utils/motion';
+import { slideIn } from "../../utils/motion";
 
 const Subscribe = () => {
-  const [ref, isInView] = useInView({triggerOnce:true, threshold:0.1});
+  const [ref, isInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const animation = useAnimation();
 
-  useEffect(() =>{
-    if(isInView){
-      animation.start('visible');
+  useEffect(() => {
+    if (isInView) {
+      animation.start("visible");
     }
-  }, [isInView])
-  
+  }, [isInView]);
+
   return (
     <div ref={ref}>
       <section

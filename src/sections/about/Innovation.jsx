@@ -1,22 +1,16 @@
-import { arrowRight } from "../assets/icons";
-import { offer } from "../assets/images";
-import Button from "./../Components/Button";
-import { slideIn } from "../utils/motion";
-import { motion, useAnimation, useInView } from "framer-motion";
-import { useRef, useEffect } from "react";
-
-const SpecialOffer = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
+import { useInView } from "react-intersection-observer";
+import { slideIn } from "./../../utils/motion";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import { bigShoe5 } from "../../assets/images";
+const Innovation = () => {
+  const [ref, isInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const animation = useAnimation();
-
   useEffect(() => {
     if (isInView) {
       animation.start("visible");
     }
   }, [isInView]);
-
   return (
     <div ref={ref}>
       <section className="flex flex-wrap items-center gap-10 max-container max-xl:flex-col-reverse">
@@ -30,11 +24,11 @@ const SpecialOffer = () => {
           className="flex-1 "
         >
           <img
-            src={offer}
+            src={bigShoe5}
             alt=""
             width={773}
             height={687}
-            className="object-contain w-full"
+            className="object-contain w-full shadow-md rounded-xl"
           />
         </motion.div>
 
@@ -60,9 +54,7 @@ const SpecialOffer = () => {
             }}
             className="text-4xl font-bold capitalize font-palanquin lg:max-w-lg"
           >
-            <br />
-            <span className="text-coral-red">Special</span>
-            &nbsp;Offer
+            Innovation at Our Core
           </motion.h2>
           <motion.div
             variants={slideIn("right")}
@@ -70,31 +62,20 @@ const SpecialOffer = () => {
             animate={animation}
             transition={{
               duration: 0.65,
-              delay:0.25,
+              delay: 0.25,
               delayChildren: 0.5,
               staggerChildren: 0.6,
             }}
           >
             <p className="mt-4 lg:max-w-lg info-text">
-              Embark on a shopping journey that redefines your experience with
-              unbeatable deals. From premier selections to incredible savings,
-              we offer unparalleled value that sets us apart.
+              At <span className="text-coral-red">Nike</span>, innovation isn&lsquo;t just a buzzword; it&lsquo;s the
+              heartbeat of our brand. We&lsquo;re dedicated to pushing the boundaries
+              of what&lsquo;s possible, just as Nike has always done. From
+              groundbreaking materials to ergonomic designs, every product is a
+              testament to our commitment to innovation.
             </p>
 
-            <p className="mt-6 lg:max-w-lg info-text">
-              Navigate a realm of possibilities designed to fulfill your unique
-              desires, surpassing the loftiest expectations. Your journey with
-              us is nothing short of exceptional.
-            </p>
-            <div className="flex flex-wrap gap-4 mt-11">
-              <Button label="Shop now" isLink={true} href='/products' iconUrl={arrowRight} />
-              <Button
-                label="Learn more"
-                backgroundColor="bg-white"
-                borderColor="border-slate-gray"
-                textColor="text-slate-gray"
-              />
-            </div>
+            
           </motion.div>
         </motion.div>
       </section>
@@ -102,4 +83,4 @@ const SpecialOffer = () => {
   );
 };
 
-export default SpecialOffer;
+export default Innovation;
