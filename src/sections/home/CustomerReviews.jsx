@@ -1,22 +1,13 @@
-import { useEffect } from "react";
 import { reviews } from "../../constants";
 import ReviewCard from "../../Components/ReviewCard";
-import { motion, useAnimation } from "framer-motion";
-import {useInView} from 'react-intersection-observer';
+import { motion } from "framer-motion";
 import { fadeIn } from "../../utils/motion";
 import { useStaggerAnimation } from "../../hooks/useStaggerAnimation";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 const CustomerReviews = () => {
-  const [ref, isInView] = useInView({triggerOnce:true, threshold: 0.1});
-  const animation = useAnimation();
-
+  const {ref,animation, isInView} = useScrollAnimation();
   const scope = useStaggerAnimation(isInView, "article");
-
-  useEffect(() => {
-    if (isInView) {
-      animation.start("visible");
-    }
-  }, [isInView]);
 
   return (
     <div ref={ref}>

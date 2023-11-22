@@ -1,20 +1,11 @@
 import { shoe8 } from "../../assets/images";
 import Button from "../../Components/Button";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { slideIn } from "../../utils/motion";
-import { motion, useAnimation, useInView } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const SupperQuality = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  const animation = useAnimation();
-
-  useEffect(() => {
-    if (isInView) {
-      animation.start("visible");
-    }
-  }, [isInView]);
+  const { ref, animation } = useScrollAnimation();
 
   return (
     <div ref={ref}>

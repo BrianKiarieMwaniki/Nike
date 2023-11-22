@@ -1,17 +1,9 @@
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { fadeIn } from "../../utils/motion";
-import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 const Empowering = () => {
-  const [ref, isInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const animation = useAnimation();
-
-  useEffect(() => {
-    if (isInView) {
-      animation.start("visible");
-    }
-  }, [isInView]);
+  const {ref, animation} = useScrollAnimation();
   
   return (
     <section ref={ref} className="w-full parallax-banner min-h-[650px] px-4 flex flex-col justify-center">

@@ -1,16 +1,9 @@
-import { useInView } from "react-intersection-observer";
 import { slideIn } from "./../../utils/motion";
-import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { motion } from "framer-motion";
 import { bigShoe5 } from "../../assets/images";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 const Innovation = () => {
-  const [ref, isInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const animation = useAnimation();
-  useEffect(() => {
-    if (isInView) {
-      animation.start("visible");
-    }
-  }, [isInView]);
+ const {ref, animation} = useScrollAnimation();
   return (
     <div ref={ref}>
       <section className="flex flex-wrap items-center gap-10 max-container max-xl:flex-col-reverse">

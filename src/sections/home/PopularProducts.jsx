@@ -1,11 +1,11 @@
 import { products } from "../../constants";
 import PopularProductCard from "../../Components/PopularProductCard";
-import { useInView } from "react-intersection-observer";
 import { useStaggerAnimation } from "../../hooks/useStaggerAnimation";
 import { motion } from "framer-motion";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 const PopularProducts = () => {
-  const [ref, isInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const {ref, isInView} = useScrollAnimation();
   const scope = useStaggerAnimation(isInView, "article");
   return (
     <div ref={ref}>
