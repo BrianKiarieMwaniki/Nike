@@ -1,17 +1,9 @@
-
-import { motion, useAnimation } from 'framer-motion';
-import { useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 import { fadeIn } from '../../utils/motion';
-const OurStory = () => {
-    const [ref, isInView] = useInView({triggerOnce:true, threshold:0.1});
-    const animation = useAnimation();
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
-    useEffect(() =>{
-        if(isInView){
-            animation.start("visible")
-        }
-    }, [isInView])
+const OurStory = () => {
+    const {ref, animation} = useScrollAnimation();
   return (
     <section ref={ref} className="max-container">
       <motion.h2

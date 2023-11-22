@@ -1,11 +1,11 @@
-import { useInView } from "react-intersection-observer";
 import { services } from "../../constants";
 import { useStaggerAnimation } from "../../hooks/useStaggerAnimation";
 import ServiceCard from "../../Components/ServiceCard";
 import { motion } from "framer-motion";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 const Services = () => {
-  const [ref, isInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const {ref, isInView} = useScrollAnimation();
   const scope = useStaggerAnimation(isInView, "article");
   return (
     <div ref={ref}>
